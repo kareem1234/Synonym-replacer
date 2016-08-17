@@ -1,0 +1,99 @@
+<doctype html>
+<html >
+  <head>
+    <title>Synonym Replacer</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+    <style>
+    	body{
+    		height:100%;
+    		font-family: "Times New Roman", Times, serif !important;
+    	}
+    	html{
+    		height:100%;
+    	}
+    	.container{
+    		height:100%;
+    	}
+      .replaced{
+
+      }
+    	#text{
+    		height:45%;
+    		word-spacing: 8px;
+    		overflow-y: scroll;
+    	}
+    	p{
+    		font-size: 19px;
+    		margin-left: -10%;
+    	}
+    	h1{
+    		    margin-left: 2%;
+    	}
+    	#text:focus{
+    		outline: none;
+		    border-color: black;
+		    box-shadow: 0 0 10px black;
+
+		}
+    	#textPad{
+    		height:10%;
+    	}
+    	#replace{
+    		text-align:center;
+    		font-size:20px;
+    		padding-left: 15%;
+		    padding-right: 15%;
+		    padding-top: 2%;
+		    padding-bottom: 7%;
+    	}
+    </style>
+  </head>
+  <body ng-app ='synReplacer'>
+  <div ng-controller="SynController" class="container row">
+  		<div class="col s12">
+  				<div class="row">
+  					<div class="col s8 offset-s2 ">
+  						<h1>Synonym Replacer</h1>
+  					</div>
+  				</div>
+  		</div>
+  		<div class="col s12">
+  				<div class="row">
+  					<div class="col s7 offset-s3">
+  						<p> Rewrite any text by replacing words with their synonyms </p>
+  					</div>
+  				</div>
+  		</div>
+  		<div id="text" ng-model='text'   contenteditable="true" class="z-depth-2 col s12 fadein fadeout">
+  			
+  		</div>
+  		<div id="textPad" class="col s12"></div>
+  		<div class="col s12">
+  			<div class="row">
+  				<div ng-show='!fetching' class ="col s12 center">
+  						<a id="replace"  ng-click="replace()"class="waves-effect waves-light btn z-depth-4 black">Replace</a>
+  				</div >
+          <div class='col s12 center'>
+            <div ng-show='fetching' class="center offset-s4 preloader-wrapper big active">
+              <div class="spinner-layer spinner-blue-only">
+                <div class="circle-clipper left">
+                  <div class="circle"></div>
+                </div><div class="gap-patch">
+                  <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                  <div class="circle"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+  			</div>
+  		</div>
+  </div>
+
+  <!-- Compiled and minified JavaScript -->
+  	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+     <script type="text/javascript" src="/js"></script>
+  </body>
+</html>
